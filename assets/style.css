@@ -1,0 +1,177 @@
+/* Import font */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;600;700&display=swap');
+
+/* Reset & Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Quicksand', sans-serif;
+  background-color: #0f172a; /* deep navy blue */
+  color: #e2e8f0; /* soft light gray text */
+  line-height: 1.6;
+  padding: 40px 20px;
+}
+
+.container {
+  max-width: 900px;
+  margin: auto;
+}
+
+/* Header Flex */
+.header-flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  padding: 2rem 0;
+}
+
+.profile-left {
+  flex-shrink: 0;
+  animation: slideInLeft 1s ease-out forwards;
+  opacity: 0;
+}
+
+.profile-pic {
+  width: 210px;
+  height: 210px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  border: 4px solid #1e293b;
+}
+
+.profile-right {
+  text-align: left;
+  max-width: 500px;
+  animation: fadeInRight 1.2s ease-out 0.3s forwards;
+  opacity: 0;
+}
+
+.profile-right h1 {
+  font-size: 2.5rem;
+  margin: 0;
+  color: #38bdf8; /* sky blue */
+  font-weight: 700;
+}
+
+.profile-right .tagline {
+  font-size: 1.2rem;
+  color: #94a3b8; /* slate gray */
+  margin: 0.5rem 0 1rem;
+  font-weight: 400;
+}
+
+.resume-btn {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  background-color: #0ea5e9; /* teal-blue */
+  color: #fff;
+  text-decoration: none;
+  border-radius: 10px;
+  transition: 0.3s ease;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(14, 165, 233, 0.3);
+}
+
+.resume-btn:hover {
+  background-color: #0369a1;
+}
+
+/* Section Cards */
+.card {
+  background: #1e293b; /* dark slate blue */
+  border-radius: 16px;
+  padding: 30px;
+  margin-bottom: 30px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+  color: #e2e8f0; /* soft light text */
+}
+
+.card:hover {
+  transform: scale(1.015);
+}
+
+h2 {
+  color: #38bdf8;
+  margin-bottom: 15px;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+ul {
+  list-style-type: square;
+  padding-left: 20px;
+  color: #cbd5e1;
+}
+
+a {
+  color: #0ea5e9;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+a:hover {
+  color: #38bdf8;
+  text-decoration: underline;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  color: #94a3b8;
+  font-size: 0.9rem;
+}
+
+/* Animations */
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.cards-wrapper {
+  background: rgba(255, 255, 255, 0.2); /* subtle white with transparency */
+  padding: 70px;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
+  margin-bottom: 40px;
+}
+
+
+
+/* Background container */
+/* .main-content-bg {
+  position: relative;
+  z-index: 1;
+  margin-top: 20px;
+  padding: 20px;
+  border-radius: 16px;
+  background-image: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.8)), url('assets/portback.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+} */     

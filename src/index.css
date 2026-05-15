@@ -1,0 +1,160 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Playfair Display", Georgia, serif;
+  --font-body: "DM Sans", "Segoe UI", sans-serif;
+  --font-hand: "Caveat", cursive;
+
+  --color-primary: var(--bg-primary);
+  --color-secondary: var(--bg-secondary);
+  --color-dot: var(--bg-dot);
+  --color-glass-bg: var(--glass-bg);
+  --color-glass-border: var(--glass-border);
+  --color-glass-shadow: var(--glass-shadow);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+  --color-accent-rose: var(--accent-rose);
+  --color-accent-rose-soft: var(--accent-rose-soft);
+  --color-accent-lavender: var(--accent-lavender);
+  --color-accent-lavender-vivid: var(--accent-lavender-vivid);
+  --color-accent-butter: var(--accent-butter);
+  --color-accent-butter-vivid: var(--accent-butter-vivid);
+  --color-accent-sage: var(--accent-sage);
+  --color-accent-sage-vivid: var(--accent-sage-vivid);
+  --color-accent-plum: var(--accent-plum);
+  --color-accent-latte: var(--accent-latte);
+  --color-washi-pink: var(--washi-pink);
+  --color-washi-lavender: var(--washi-lavender);
+  --color-polaroid-bg: var(--polaroid-bg);
+  --color-polaroid-shadow: var(--polaroid-shadow);
+}
+
+@layer base {
+  :root {
+    --bg-primary: #F4E5DD; /* Soft pinkish beige */
+    --bg-secondary: #EADCD3;
+    --bg-dot: rgba(93, 120, 83, 0.15); /* Green dot */
+    
+    --glass-bg: rgba(244, 229, 221, 0.5);
+    --glass-border: rgba(255, 255, 255, 0.6);
+    --glass-shadow: rgba(74, 107, 70, 0.1);
+    
+    --text-primary: #3B4D36; /* Deep green for main text */
+    --text-secondary: #65735D;
+    --text-muted: #8E9B86;
+    
+    --accent-rose: #C69588; 
+    --accent-rose-soft: #EBCBC2;
+    --accent-lavender: #A5A2B5;
+    --accent-lavender-vivid: #8C8A9E;
+    --accent-butter: #D6CBB8;
+    --accent-butter-vivid: #C8BBA0; /* Sand taupe */
+    --accent-sage: #9AB091; 
+    --accent-sage-vivid: #5D7853; /* Main matcha green */
+    --accent-plum: #8C705E; /* Warm brown */
+    --accent-latte: #A68D7B;
+    
+    --card-hover-lift: 0 12px 36px rgba(74, 107, 70, 0.15);
+    --washi-pink: rgba(198, 149, 136, 0.6);
+    --washi-lavender: rgba(140, 112, 94, 0.6);
+    --polaroid-bg: #FCF8F5;
+    --polaroid-shadow: rgba(59, 77, 54, 0.12);
+  }
+
+  /* Dark mode mappings */
+  .dark {
+    --bg-primary: #1E241C; 
+    --bg-secondary: #252D23;
+    --bg-dot: rgba(154, 176, 145, 0.06);
+    
+    --glass-bg: rgba(30, 36, 28, 0.6);
+    --glass-border: rgba(154, 176, 145, 0.15);
+    --glass-shadow: rgba(0, 0, 0, 0.3);
+    
+    --text-primary: #E9E1DC;
+    --text-secondary: #B9C4B1;
+    --text-muted: #8B9982;
+    
+    --accent-rose: #A37064;
+    --accent-rose-soft: #422D28;
+    --accent-lavender: #7D7A8C;
+    --accent-lavender-vivid: #9A97AA;
+    --accent-butter: #9E9171;
+    --accent-butter-vivid: #D2C4A7;
+    --accent-sage: #4E6345;
+    --accent-sage-vivid: #7D9C72;
+    --accent-plum: #8C705E;
+    --accent-latte: #A68D7B;
+    
+    --card-hover-lift: 0 12px 40px rgba(0, 0, 0, 0.3);
+    --washi-pink: rgba(163, 112, 100, 0.4);
+    --washi-lavender: rgba(140, 112, 94, 0.4);
+    --polaroid-bg: #21281F;
+    --polaroid-shadow: rgba(0, 0, 0, 0.4);
+    --marquee-bg: #252D23;
+    --marquee-text: #E9E1DC;
+    --badge-text: #D2C4A7;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 100px;
+  }
+
+  body {
+    @apply font-body bg-primary text-text-primary transition-colors duration-500 overflow-x-hidden;
+    background-image: radial-gradient(var(--bg-dot) 1px, transparent 1px);
+    background-size: 28px 28px;
+  }
+
+  @keyframes wiggle {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(-6deg) scale(1.1); }
+    50% { transform: rotate(4deg) scale(1.1); }
+    75% { transform: rotate(-3deg) scale(1.05); }
+    100% { transform: rotate(0deg) scale(1); }
+  }
+
+  .hover-wiggle:hover {
+    animation: wiggle 0.4s ease;
+  }
+
+  /* Scroll reveal */
+  .animate-reveal-visible {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+  }
+
+  /* Custom dotted timeline line */
+  .timeline-line::before {
+    content: '';
+    position: absolute;
+    left: 18px;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: repeating-linear-gradient(to bottom, var(--accent-lavender) 0 8px, transparent 8px 16px);
+  }
+  /* Hire Me button — light mode: white text on dark bg; dark mode: bg-primary text on light bg */
+  .hire-me-btn {
+    background-color: var(--text-primary);
+    color: #ffffff;
+  }
+
+  .dark .hire-me-btn {
+    background-color: #B9C4B1;
+    color: var(--bg-primary);
+  }
+
+  /* Unhinged badge — light mode: white text, dark bg; dark mode: bg-primary text, light bg */
+  .unhinged-badge {
+    background-color: var(--text-primary);
+    color: #ffffff;
+  }
+
+  .dark .unhinged-badge {
+    background-color: #B9C4B1;
+    color: var(--bg-primary);
+  }
+}
